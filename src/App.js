@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Counter from "./Counter";
+import CounterHooks from "./CounterHooks";
+
+// Whichever component that its state is changed that component is rerendered
+
+// Creates a context that is used like GLOBAL environment from nested COMPONENTS so they can use the value of context.Provider like global variable in context.Consumer
+export const ThemeContext = React.createContext();
 
 function App() {
+  // Will be console logged only once because its state doesn't change (so it isn't rerendered)
+  console.log("Render App");
+  const [theme, setTheme] = useState("red");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // The Provider must always have the VALUE attribute
+    <ThemeContext.Provider value={{ backgroundColor: theme }}>
+      Counter
+      <Counter initialCount={0} />
+      <br />
+      Counter Hooks
+      <CounterHooks initialCount={0} />
+      <button
+        onClick={() =>
+          setTheme((prevTheme) => {
+            return prevTheme === "red" ? "blue" : "red";
+          })
+        }
+      >
+        Toggle Theme
+      </button>
+    </ThemeContext.Provider>
   );
 }
 
