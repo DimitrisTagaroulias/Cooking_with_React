@@ -10,7 +10,7 @@ export const ThemeContext = React.createContext();
 function App() {
   // Will be console logged only once because its state doesn't change (so it isn't rerendered)
   console.log("Render App");
-  const [theme, setTheme] = useState("red");
+  const [theme, setTheme] = useState("green");
   return (
     // The Provider must always have the VALUE attribute
     <ThemeContext.Provider value={{ backgroundColor: theme }}>
