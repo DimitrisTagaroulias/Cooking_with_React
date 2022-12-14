@@ -7,4 +7,4 @@ USER ACTIONS:
 2. You can add a new one.
 
 NOTE:
-The app creates a cookie in order your actions to be persisted
+The app creates a cookie in order your actions to be persisted.
