@@ -9,22 +9,8 @@ export default function RecipeEdit(props) {
   const { id, name, cookTime, servings, instructions, ingredients } = recipe;
   const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext);
 
-  // Helper function for doing all the shared functionality between all of our inputs
-  // Takes a list of the changes({object}) that we actually want to make
-  // handleChange({changes}= object with all the differences between our current recipe)
   function handleChange(changes) {
-    // {...recipe, ...changes} --> This overwrites every key:value from {recipe} that are same with key:value of {changes}
-    // We copied and commented out the following function from App.js just to be easier to wrap our head around with the logic of this function
-    // function handleRecipeChange(id, recipe) {
-    //   const newRecipes = [...recipes];
-    //   const index = newRecipes.findIndex((r) => r.id === id);
-    //   newRecipes[index] = recipe;
-    //   setRecipes(newRecipes);
-    // }
     handleRecipeChange(id, { ...recipe, ...changes });
-
-    // We mustn't just do this : recipe.name = "New Name"
-    // In REACT you must never overwrite "props" or "states" unless you absolutely have a good reason to do so
   }
 
   function handleIngredientChange(id, ingredient) {
@@ -49,7 +35,6 @@ export default function RecipeEdit(props) {
     });
   }
 
-  // !!!  In REACT --> onInput = OnChange  !!!
   return (
     <div className="recipe-edit">
       <div className="recipe-edit__remove-button-container">

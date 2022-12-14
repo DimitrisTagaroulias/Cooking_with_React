@@ -39,6 +39,5 @@
 }
 
 .recipe__instructions {
-  /* pre-wrap = preserve all white spaces and works with /n that we have in App.js in instructions*/
   white-space: pre-wrap;
 }
