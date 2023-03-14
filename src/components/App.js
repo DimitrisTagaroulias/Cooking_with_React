@@ -23,9 +23,6 @@ function App() {
     (recipe) => recipe.id === selectedRecipeId
   );
 
-  console.log("selectedRecipe :", selectedRecipe);
-  console.log("selectedRecipeId :", selectedRecipeId);
-
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
   }, [recipes]);
@@ -86,7 +83,7 @@ const sampleRecipes = [
     servings: 3,
     cookTime: "1:45",
     instructions:
-      "1. Put salt on Chicken\n2. Put chicken in oven\n3. Eat chicken",
+      "1.  Put salt on Chicken\n2. Put chicken in oven\n3. Eat chicken",
     ingredients: [
       {
         id: 1,
@@ -105,7 +102,7 @@ const sampleRecipes = [
     name: "Plain Pork",
     servings: 3,
     cookTime: "0:45",
-    instructions: "1. Put paprika on Pork\n2. Put pork in oven\n3. Eat pork",
+    instructions: "1.  Put paprika on Pork\n2. Put pork in oven\n3. Eat pork",
     ingredients: [
       {
         id: 1,
